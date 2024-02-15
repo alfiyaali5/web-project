@@ -35,7 +35,7 @@
                   <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item">
-                  <button id="cart" type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="top" title="HTML Content Popover" data-bs-html="true" data-bs-content="<strong>This is a <em>custom</em> HTML message</strong>">
+                  <button id="cart" type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="top" title="HTML Content Popover" data-bs-html="true" data-bs-content="<button>checkout</button>">
                     Cart(0)
                   </button>
                 </li>
@@ -143,16 +143,16 @@
 
    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  document.getElementById("cart").setAttribute('data-bs-content','this is your cart')
+  document.getElementById("cart").setAttribute('data-bs-content',cartString);
   return new bootstrap.Popover(popoverTriggerEl)
 });
 
-var cartString="";
-DisplayCart(cart);
 
+DisplayCart(cart);
+var cartString="";
 function DisplayCart(cart){ 
-   html:true,
-   cartString += "<strong>This is a <em>custom</em> HTML message</strong>";
+   html:true;
+   cartString += "<a href='/test'>Check-out</a>"
    var cartIndex = 1;
    for(var x in cart){
     cartString += cartIndex;
